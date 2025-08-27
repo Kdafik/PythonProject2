@@ -1,0 +1,40 @@
+[project]
+name = "pythonproject2"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "alimad jafarov",email = "kdafik@yandex.ru"}
+]
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "python-dotenv (>=1.1.1,<2.0.0)",
+    "requests (>=2.32.5,<3.0.0)",
+    "pandas (>=2.3.2,<3.0.0)",
+    "openpyxl (>=3.1.5,<4.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^7.3.0"
+pytest = "^8.4.1"
+pytest-cov = "^6.2.1"
+isort = "^6.0.1"
+black = "^25.1.0"
+mypy = "^1.17.1"
+
+[tool.black]
+line-length = 119
+exclude = '.git'
+
+[tool.isort]
+line_length = 119
+
+[tool.mypy]
+dissalow_uptyped_defs = true
+warn_return_any = true
+exclude = '.venv'
