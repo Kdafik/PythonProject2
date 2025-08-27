@@ -1,6 +1,6 @@
 import pytest
 
-from src.main import Category
+from src.category import Category
 
 
 @pytest.fixture
