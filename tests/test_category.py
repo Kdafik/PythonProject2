@@ -33,6 +33,8 @@ def test_init(category_phones, p, products):
 def test_add_product(category_phones, p):
     category_phones.add_product(p)
     assert len(category_phones.products) == 4
+    category_phones.add_product("not product")
+    assert len(category_phones.products) == 4
 
 
 def test_products(category_phones, products):
