@@ -39,3 +39,7 @@ def test_add_product(category_phones, p):
 
 def test_products(category_phones, products):
     assert category_phones.products == products
+
+
+def test_str(category_phones):
+    assert str(category_phones) == "Phones, количество продуктов: 15 шт."

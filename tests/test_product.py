@@ -39,3 +39,11 @@ def test_price(product_iphone, monkeypatch):
     assert product_iphone.price == 800.0
     product_iphone.price = 1100
     assert product_iphone.price == 1100.0
+
+
+def test_str(product_iphone):
+    assert str(product_iphone) == "Iphone 11, 1000.0 руб. Остаток: 5 шт."
+
+
+def test_add(product_iphone):
+    assert product_iphone + product_iphone == 10000
