@@ -2,11 +2,18 @@ import pytest
 
 from src.category import Category
 from src.product import Product
+from src.smartphone import Smartphone
 
 
 @pytest.fixture
 def p():
     return Product("Iphone 11", "Iphone 11", 1000.0, 5)
+
+
+@pytest.fixture
+def sm():
+    return Smartphone("Iphone 15", "512GB, Gray space", 210000.0,
+                      8, 98.2, "15", 512, "Gray space")
 
 
 @pytest.fixture
@@ -30,11 +37,15 @@ def test_init(category_phones, p, products):
     assert Category.product_count == 6
 
 
-def test_add_product(category_phones, p):
+def test_add_product(category_phones, p, sm):
     category_phones.add_product(p)
     assert len(category_phones.products) == 4
-    category_phones.add_product("not product")
+    with pytest.raises(TypeError):
+        category_phones.add_product("not product")
+
     assert len(category_phones.products) == 4
+    category_phones.add_product(sm)
+    assert len(category_phones.products) == 5
 
 
 def test_products(category_phones, products):
